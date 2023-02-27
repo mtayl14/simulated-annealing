@@ -3,6 +3,7 @@ from result import Result
 
 class ShortestPath(Action):
     # Talk about unoptimized!
+    # Searches for the nearest city
     
     def transition(current_state, available_states):
         if len(available_states) == 0:
