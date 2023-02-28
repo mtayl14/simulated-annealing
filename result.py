@@ -1,3 +1,4 @@
+# Convience class. Based on Rust's Result Enum
 class Result:
     def __init__(self, okay, value):
         self.okay = okay
