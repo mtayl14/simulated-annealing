@@ -38,7 +38,7 @@ class Tour(Path):
             # Otherwise
             distance = last_point.distance_to_city(point)
             plt.plot([last_point.x, point.x], [last_point.y, point.y])
-            plt.text((last_point.x + point.x) / 2, (last_point.y + point.y) / 2, f'{distance:.3f}', ha='center', va='center')
+            # plt.text((last_point.x + point.x) / 2, (last_point.y + point.y) / 2, f'{distance:.3f}', ha='center', va='center')
             last_point = point
 
         plt.text(last_point.x, last_point.y, f'END')

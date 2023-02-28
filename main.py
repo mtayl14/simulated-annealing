@@ -1,4 +1,3 @@
-
 import csv, random
 
 from tsp.city import City
@@ -12,7 +11,7 @@ def main():
     cities = set()
 
     # Read cities from CSV
-    with open('cities1.csv', 'r') as f:
+    with open('cities2.csv', 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             x, y = row
@@ -27,15 +26,15 @@ def main():
 
     print(f"Initial solution cost={solution_shortest.cost()}")
 
-    solution_shortest.plot_tour("Shortest Only")
+    solution_shortest.plot_tour(f"Shortest Only, Distance={solution_shortest.cost():.4f}")
 
     print("Starting annealling...")
     annealer = Annealer(solution_shortest, {NextAvailableCity, RandomPath})
 
-    solution_annealed = annealer.anneal(2, 0.995, 20000)
+    solution_annealed = annealer.anneal(2, 0.995, 2000)
     print(f"Annealed solution cost={solution_annealed.cost()}")
 
-    solution_annealed.plot_tour("Annealed")
+    solution_annealed.plot_tour(f"Annealed, Distance={solution_annealed.cost():.4f}")
 
     if solution_annealed.cost() < solution_shortest.cost():
         print(f'Annealed solution is {solution_shortest.cost() - solution_annealed.cost()} units cheaper!')
